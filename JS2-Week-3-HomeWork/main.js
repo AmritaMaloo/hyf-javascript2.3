@@ -46,22 +46,17 @@ function getData() {
         }
         
         
-    
         input.value = "" ;     
     });
     
 
 }
 
-
-
 function commitDetails() {
 
-    
     h2.innerHTML = "";
     h3.innerHTML = "";
-    
-    
+       
     const array = this.innerText.split('/');
     console.log(array[array.length-1]);
     
@@ -79,6 +74,21 @@ function commitDetails() {
         }
          
     });
+}
+
+//Remove Duplicates from the Array
+const arrayD = ['a', 'b', 'c', 'd', 'a', 'e', 'f', 'c'];
+getArray1 (arrayD);
+
+function getArray1 (arrayD) {
+    let arrayWD = [];
+    for(const val of arrayD) {
+        if(arrayWD.includes(val) === false)
+        arrayWD.push(val);
+    }
+    console.log("array with Duplicates", arrayD);
+    console.log("without Duplicates", arrayWD);
+
 }
     
     
