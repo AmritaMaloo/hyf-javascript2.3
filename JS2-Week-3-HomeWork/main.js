@@ -69,7 +69,7 @@ function commitDetails() {
     fetchJSONData(url, function(data) {
         for(const eachobj of data) {
             const li = document.createElement('li');
-            li.innerHTML = `<a href="${eachobj.author.html_url}" target="_blank"><img src="${eachobj.author.avatar_url} alt="avatar" width="50" height="50"></a><span><a href="${eachobj.author.html_url}" target="_blank">${eachobj.commit.author.name}</a></span><br>${eachobj.commit.author.date}<br>${eachobj.commit.message}`
+            li.innerHTML = `<div class="img-name"><div class="image"><a href="${eachobj.author.html_url}" target="_blank"><img src="${eachobj.author.avatar_url} alt="avatar" width="50" height="50"></a></div><div class="name"><p><a href="${eachobj.author.html_url}" target="_blank">${eachobj.commit.author.name}</a></p></div></div><br><div class="date-commit"><p>${eachobj.commit.author.date}<br>${eachobj.commit.message}</p></div>`
             document.querySelector('.commitList').appendChild(li); 
         }
          
