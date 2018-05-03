@@ -33,7 +33,7 @@ function getData() {
             
             for(const obj of data.items) {
                 const li = document.createElement('li');
-                li.innerHTML = `<a href="#">${obj.url}</a>`;
+                li.innerHTML = `<a href="#commitDivID">${obj.url}</a>`;
                 document.querySelector('.repolinks').appendChild(li); 
                          
             }
