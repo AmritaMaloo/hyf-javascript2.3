@@ -34,38 +34,36 @@ function getData() {
             for(const obj of data.items) {
                 const li = document.createElement('li');
                 li.innerHTML = `<a href="#commitDivID">${obj.url}</a>`;
+                    
                 document.querySelector('.repolinks').appendChild(li); 
-                         
+                li.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    commitDetails(obj);
+                });   
+                   
             }
                 
         }
-        const list = document.querySelectorAll('.repolinks li');
-        console.log(list);
-        for(let i = 0; i < list.length; i++) {
-            list[i].addEventListener('click', commitDetails);
-        }
-        
-        
+               
         input.value = "" ;     
     });
     
 
 }
 
-function commitDetails() {
-
+function commitDetails(obj) {
     h2.innerHTML = "";
     h3.innerHTML = "";
        
-    const array = this.innerText.split('/');
-    console.log(array[array.length-1]);
+    h2.innerHTML = `<a href="${obj.html_url}" target="_blank">${obj.name}</a>`;
     
-    h2.innerHTML = `<a href="https://github.com/HackYourFuture/${array[array.length-1]}" target="_blank">${array[array.length-1]}</a>`;
     h3.innerHTML = "Commits";
     h2.style.display = 'block';
     h3.style.display = 'block';
-    const url = this.innerText + "/commits";
+
+    const url = obj.url + "/commits";
     document.querySelector('.commitList').innerHTML = "";
+    
     fetchJSONData(url, function(data) {
         for(const eachobj of data) {
             const li = document.createElement('li');
